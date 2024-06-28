@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Автоматичний переклад</title>
+</head>
+<body>
+    <h1>Ласкаво просимо на наш сайт</h1>
+    <p>Це приклад сторінки для автоматичного перекладу.</p>
+    
+    <button id="translate-button">Перекласти</button>
+
+    <script>
+        const translations = {
+            'Ласкаво просимо на наш сайт': 'Welcome to our website',
+            'Це приклад сторінки для автоматичного перекладу.': 'This is an example page for automatic translation.',
+            // Додайте інші фрази для перекладу тут
+        };
+
+        document.getElementById('translate-button').addEventListener('click', function() {
+            translatePage();
+        });
+
+        function translatePage() {
+            const elementsToTranslate = document.querySelectorAll('[data-translation]');
+            elementsToTranslate.forEach(function(element) {
+                const originalText = element.textContent;
+                const translatedText = translations[originalText];
+
+                if (translatedText) {
+                    element.textContent = translatedText;
+                }
+            });
+        }
+    </script>
+</body>
+</html>
